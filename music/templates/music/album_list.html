@@ -1,0 +1,14 @@
+{% extends "music/base.html" %}
+{% block content %}
+    {% for album in albums %}
+    <article class="media content-section">
+        <img class = 'rounded-circle article-img'>
+        <div class="media-body">
+          <h2><a class="article-title" href="{% url 'album-detail' album.id %}">{{ album.album_name }}</a></h2>
+          <small>{{ album.year }}</small>
+          <p class="article-content">{{ album.description }}</p>
+        </div>
+      </article>
+    {% endfor %}
+{% endblock content %}
+

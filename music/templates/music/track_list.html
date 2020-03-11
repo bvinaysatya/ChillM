@@ -1,0 +1,34 @@
+{% extends "music/base.html" %}
+{% block content %}
+    <article class="media content-section">
+        <img class = 'rounded-circle article-img'>
+        <div class="media-body">
+          <h2><a class="article-title">{{ object.album_name }}</a></h2>
+          <small>{{ object.year }}</small>
+          <p class="article-content">{{ object.description }}</p>
+        </div>
+        <div>
+            <a href="{% url 'album-delete' album.id%}">Delete</a>
+            <a href="{% url 'album-update' album.id%}">Update</a>
+        </div>
+        
+        <div>
+
+            {%if track in object.album_name %}
+
+            {% for track in albums %}
+    <article class="media content-section">
+        <img class = 'rounded-circle article-img'>
+        <div class="media-body">
+          <h2>{{ track.track_name }}</h2>
+          <h2>{{ track.track_artist }}</h2>
+        </div>
+      </article>
+    {% endfor %}
+    {% endif %}
+
+
+        </div>
+
+
+{% endblock content %}
